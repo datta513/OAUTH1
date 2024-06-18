@@ -1,3 +1,5 @@
+
+
 (config
  (text-field
   :name "clientId" ; name is fixed
@@ -25,7 +27,7 @@
     scope :<= "scope" 
     expires-in :<= "expires_in")))
  
-;;  <auth/http-bearer bearerToken:"access_token">
+
 )
 (default-source
  (http/get :base-url "https://api.paychex.com"
