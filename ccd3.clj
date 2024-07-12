@@ -26,10 +26,7 @@
     expires-in :<= "expires_in")))
  
 ;;  <auth/http-bearer bearerToken:"access_token">
-
 )
-
-
 (default-source
  (http/get :base-url "https://api.paychex.com"
            (header-params "Accept" "application/json")) 
@@ -40,12 +37,11 @@
     (when :status 402 :action fail)
     (when :status 403 :action fail)
   ))
-
-
     
 (entity COMPANY
         (api-docs-url "https://developer.paychex.com/documentation#tag/Company")
         (source (http/get :url "/companies")
                 (extract-path "content")
+                (query-params "displayid" {"displayid"})
                 ) 
         )
